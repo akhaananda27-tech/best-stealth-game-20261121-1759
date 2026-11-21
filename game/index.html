@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NIGHTSHIFT — Museum Heist Stealth</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+  <header id="hud">
+    <div class="hud-left">
+      <span id="hud-level">Level 1 — The Marble Hall</span>
+      <span id="hud-objective">Steal the Star Sapphire, then reach the green EXIT</span>
+    </div>
+    <div class="hud-right">
+      <span id="hud-lives" title="Lives">♥♥♥</span>
+      <span id="hud-meter-wrap" title="Detection">
+        <span id="hud-meter-label">HIDDEN</span>
+        <span id="hud-meter"><span id="hud-meter-fill"></span></span>
+      </span>
+      <span id="hud-timer">0:00 · 0 pts</span>
+    </div>
+  </header>
+  <div id="stage">
+    <canvas id="game" width="960" height="640"></canvas>
+    <div id="hud-toast" class="hidden"></div>
+    <div id="overlay">
+      <h1 id="overlay-title">NIGHTSHIFT</h1>
+      <p id="overlay-text"></p>
+      <p id="overlay-hint"></p>
+    </div>
+  </div>
+  <footer id="controls">
+    <span><b>WASD / ←↑↓→</b> move</span>
+    <span><b>SHIFT</b> sneak (silent, slow)</span>
+    <span><b>Run</b> is fast but loud — guards hear it</span>
+    <span class="legend"><i class="cone calm"></i> calm</span>
+    <span class="legend"><i class="cone susp"></i> suspicious ?</span>
+    <span class="legend"><i class="cone chase"></i> chasing !</span>
+    <span><b>M</b> mute</span>
+    <span><b>R</b> restart</span>
+    <span class="foot-right">NIGHTSHIFT — an original stealth game · no assets, no network</span>
+  </footer>
+</div>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

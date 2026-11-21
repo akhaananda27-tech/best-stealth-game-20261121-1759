@@ -1,0 +1,100 @@
+/* NIGHTSHIFT — page chrome around the canvas: dark museum-night theme. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+body {
+  background: #0a0c16;
+  color: #e8e6da;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+}
+#wrap { width: 960px; max-width: 100%; }
+#hud {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 4px;
+  font-size: 14px;
+}
+.hud-left { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+#hud-level { font-weight: 700; letter-spacing: 0.04em; color: #ffd950; }
+#hud-objective { color: #b9bdd4; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.hud-right { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+#hud-lives { color: #ff6b6b; letter-spacing: 2px; font-size: 16px; }
+#hud-meter-wrap { display: flex; align-items: center; gap: 6px; }
+#hud-meter-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #ffd950; min-width: 74px; text-align: right; }
+#hud-meter {
+  display: inline-block;
+  width: 110px;
+  height: 10px;
+  background: #1c2036;
+  border: 1px solid #3a4060;
+  border-radius: 5px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+#hud-meter-fill { display: block; height: 100%; width: 0%; background: #ffd950; transition: width 0.12s linear; }
+#hud-timer { color: #b9bdd4; font-variant-numeric: tabular-nums; }
+#stage { position: relative; width: 960px; max-width: 100%; }
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #262a3d;
+  border: 2px solid #3a4060;
+  border-radius: 6px;
+}
+#hud-toast {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 12, 22, 0.88);
+  border: 1px solid #d4af69;
+  color: #ffe9a8;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+}
+#overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(6, 8, 18, 0.78);
+  border-radius: 6px;
+  text-align: center;
+  padding: 30px;
+}
+#overlay.hidden, #hud-toast.hidden { display: none; }
+#overlay-title {
+  font-size: 44px;
+  letter-spacing: 0.22em;
+  color: #ffd950;
+  text-shadow: 0 0 24px rgba(255, 217, 80, 0.45);
+}
+#overlay-text { max-width: 620px; line-height: 1.55; color: #dfe2f0; font-size: 16px; }
+#overlay-hint { color: #8fa8d8; font-size: 14px; }
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  padding: 10px 4px;
+  font-size: 13px;
+  color: #8a8fae;
+}
+#controls b { color: #c9cede; }
+.legend { display: inline-flex; align-items: center; gap: 5px; }
+.cone { display: inline-block; width: 12px; height: 12px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); }
+.cone.calm { background: rgba(255, 220, 80, 0.8); }
+.cone.susp { background: rgba(255, 150, 40, 0.85); }
+.cone.chase { background: rgba(255, 60, 60, 0.9); }
+.foot-right { margin-left: auto; }
